@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sri Amman Bakery</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="top-bar">
+      <div class="brand">
+        <span class="brand-title">Sri Amman Bakery</span>
+        <span class="brand-subtitle">Fresh Bakes · Snacks · Beverages</span>
+      </div>
+      <nav class="top-nav">
+        <a href="#menu-section">Menu</a>
+        <a href="#bill-section">Bill</a>
+        <a href="#report-section">Monthly Report</a>
+        <a href="admin.html">Manage Menu</a>
+      </nav>
+    </header>
+
+    <main class="layout">
+      <section id="menu-section" class="menu-section">
+        <h2 class="section-title">Menu</h2>
+        <p class="section-subtitle">
+          Tap any item to add it directly to your cart.
+        </p>
+        <div id="menu-grid" class="menu-grid"></div>
+      </section>
+
+      <aside id="bill-section" class="bill-section">
+        <h2 class="section-title">Your Bill</h2>
+        <div id="cart-items" class="cart-items"></div>
+        <div class="bill-summary">
+          <div class="bill-row">
+            <span>Items</span>
+            <span id="cart-count">0</span>
+          </div>
+          <div class="bill-row total-row">
+            <span>Total</span>
+            <span id="cart-total">₹0</span>
+          </div>
+        </div>
+        <div class="bill-actions">
+          <button id="clear-cart-btn" class="btn secondary">Clear cart</button>
+          <button id="print-bill-btn" class="btn outline">Print bill</button>
+          <button id="pay-now-btn" class="btn primary">Pay now (QR)</button>
+        </div>
+        <p id="bill-message" class="bill-message"></p>
+
+        <div id="qr-section" class="qr-section hidden">
+          <h3>Scan &amp; Pay</h3>
+          <img id="qr-image" alt="Payment QR" />
+          <button id="complete-payment-btn" class="btn success">
+            Payment received &amp; save bill
+          </button>
+        </div>
+      </aside>
+    </main>
+
+    <section id="report-section" class="report-section">
+      <h2 class="section-title">Monthly Sales Report</h2>
+      <p class="section-subtitle">
+        Based on bills completed on this device/browser.
+      </p>
+      <div id="report-container" class="report-container"></div>
+    </section>
+
+    <template id="cart-item-template">
+      <div class="cart-item">
+        <div class="cart-item-main">
+          <span class="cart-item-name"></span>
+          <span class="cart-item-price"></span>
+        </div>
+        <div class="cart-item-controls">
+          <button class="qty-btn" data-action="dec">−</button>
+          <span class="cart-item-qty"></span>
+          <button class="qty-btn" data-action="inc">+</button>
+          <button class="remove-btn">Remove</button>
+        </div>
+      </div>
+    </template>
+
+    <script type="module" src="app.js"></script>
+  </body>
+  </html>
+
